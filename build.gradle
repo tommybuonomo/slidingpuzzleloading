@@ -34,7 +34,7 @@ buildscript {
     }
 }
 
-group = 'com.tbuonomo.slidingpuzzleloading'
+group = 'com.tbuonomo'
 version = '1.0.0'
 
 apply plugin: 'com.jfrog.bintray'
