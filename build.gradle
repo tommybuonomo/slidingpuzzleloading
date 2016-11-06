@@ -9,9 +9,6 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
@@ -23,9 +20,54 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.0.0'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+    }
+}
+
+group = 'com.tbuonomo.slidingpuzzleloading'
+version = '1.0.0'
+
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+artifacts {
+    archives generateSourcesJar
+}
+
+bintray {
+    def Properties localProps = new Properties()
+    localProps.load(new FileInputStream(file('local.properties')))
+
+    user = localProps.getProperty("bintrayUser")
+    key = localProps.getProperty("bintrayApiKey")
+    pkg {
+        repo = 'maven'
+        name = 'sliding-puzzle-loading'
+
+        version {
+            name = version
+            desc = 'Initial'
+            vcsTag = version
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/tommybuonomo/slidingpuzzleloading'
+        websiteUrl = 'https://github.com/tommybuonomo/slidingpuzzleloading'
+    }
+    configurations = ['archives']
 }
