@@ -1,18 +1,18 @@
-#Sliding Puzzle Loading Animation
+# Sliding Puzzle Loading Animation
 
 A pretty loading animation inspired by [this post](https://site.uplabs.com/posts/react-loader-component-with-clip-path-and-animated) on [UpLabs](https://site.uplabs.com/)
 
 ![ezgif com-crop 1](https://cloud.githubusercontent.com/assets/15737675/20040418/528c7cfc-a457-11e6-8f80-5a5d0ab902c8.gif) ![ezgif com-crop](https://cloud.githubusercontent.com/assets/15737675/20040372/5055e546-a456-11e6-8bc2-9f586e6ab9c3.gif)
 ![ezgif com-crop 2](https://cloud.githubusercontent.com/assets/15737675/20040459/4a3b239a-a458-11e6-990a-cdbec76ad2e8.gif)
 
-##How to
-####Gradle
+## How to
+#### Gradle
 ```Gradle
 dependencies {
     compile 'com.tbuonomo:slidingpuzzleloading:1.0.1'
 }
 ```
-####In your XML layout
+#### In your XML layout
 ```Xml
 <com.tbuonomo.slidingpuzzleloading.SlidingPuzzleView
     android:id="@+id/sliding_puzzle"
@@ -26,13 +26,13 @@ dependencies {
         />
 ```
 
-####In your Java code
+#### In your Java code
 ```Java
 SlidingPuzzleView slidingPuzzleView = (SlidingPuzzleView) findViewById(R.id.sliding_puzzle);
 slidingPuzzleView.start();
 ```
 
-####Attributes
+#### Attributes
 | Attribute | Description |
 | --- | --- |
 | `squaresColor` | Color of the squares |
@@ -41,7 +41,7 @@ slidingPuzzleView.start();
 | `strokeWidth`  | Width of the squares stroke line (by default 2dp) |
 | `animationDuration` | Step duration of the animation in ms (by default 500) |
 
-##License
+## License
     Copyright 2016 Tommy Buonomo
     
     Licensed under the Apache License, Version 2.0 (the "License");
